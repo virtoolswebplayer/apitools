@@ -11,6 +11,12 @@ app = new express();
 
 app.use(bodyParser.json());
 
+app.use('/api/apiInfo', require('./routes/apiInfo'));
+
+app.use('/api/paths', require('./routes/paths'));
+
+app.use('/api/definitions', require('./routes/definitions'));
+
 app.use(express["static"](path.join(__dirname, 'public')));
 
 app.listen(5900);

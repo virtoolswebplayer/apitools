@@ -19,63 +19,60 @@
             <a class=" btn btn-default btn-block">生成JSON</a>
         </div>
     </div>
-
     <div class="col-xs-9">
         <!--动态页面-->
-
         <!--api文档信息-->
-        <div class="panel panel-default" ng-controller="apiInfoCtrl">
-            <div class="panel-heading">api文档信息</div>
-            <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-heading" ng-click="panelOpen.one=!panelOpen.one">
+                api文档信息
+            </div>
+            <div class="panel-body" ng-show="panelOpen.one">
                 <form class="form-horizontal">
                     <div class="form-group">
                         <lable class="col-sm-3 control-label">文档名称:</lable>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="info.name">
+                            <input type="text" class="form-control" ng-model="apiInfo.info.title">
                         </div>
                     </div>
                     <div class="form-group">
                         <lable class="col-sm-3 control-label">访问主机:</lable>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="info.host">
+                            <input type="text" class="form-control" ng-model="apiInfo.host">
                         </div>
                     </div>
                     <div class="form-group">
                         <lable class="col-sm-3 control-label">接口根路径:</lable>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="info.baseUrl">
+                            <input type="text" class="form-control" ng-model="apiInfo.basePath">
                         </div>
                     </div>
                     <div class="form-group">
                         <lable class="col-sm-3 control-label">文档版本:</lable>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="info.version">
+                            <input type="text" class="form-control" ng-model="apiInfo.info.version">
                         </div>
                     </div>
                     <div class="form-group">
                         <lable class="col-sm-3 control-label">文档说明:</lable>
                         <div class="col-sm-8">
                         <textarea name="" id="" cols="30" rows="4" class="form-control"
-                                  ng-model="info.description"
-                        ></textarea>
+                                  ng-model="apiInfo.info.description"
+                                ></textarea>
                         </div>
                     </div>
-
                     <!--保存-->
                     <div class="form-group">
                         <div class="col-md-1 col-lg-offset-3">
-                            <button type="button" class="btn btn-primary" ng-click="">保存</button>
+                            <button type="button" class="btn btn-primary" ng-click="saveApiInfo()">保存</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
-
         <!--模块管理-->
         <div class="panel panel-default">
-            <div class="panel-heading">模块列表</div>
-            <div class="panel-body">
+            <div class="panel-heading"  ng-click="panelOpen.two=!panelOpen.two">模块列表</div>
+            <div class="panel-body" ng-show="panelOpen.two">
                 <table class="table table-bordered">
                     <tr>
                         <th>#</th>
@@ -84,9 +81,9 @@
                         <th>创建时间</th>
                         <th>操作</th>
                     </tr>
-                    <tr>
+                    <tr ng-repeat="tag in apiInfo.tags">
                         <td>1</td>
-                        <td>用户管理</td>
+                        <td ng-bind="tag.name"></td>
                         <td>用户管理模块</td>
                         <td>2015-11-17</td>
                         <td>
@@ -94,28 +91,16 @@
                             <button class="btn btn-danger">删除</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>财富机构</td>
-                        <td>财富机构模块</td>
-                        <td>2015-11-17</td>
-                        <td>
-                            <button class="btn btn-info">编辑</button>
-                            <button class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-
                 </table>
                 <div>
                     <button class="btn btn-warning">+ 新增</button>
                 </div>
             </div>
         </div>
-
         <!--接口管理-->
         <div class="panel panel-default">
-            <div class="panel-heading">接口列表</div>
-            <div class="panel-body">
+            <div class="panel-heading"  ng-click="panelOpen.three=!panelOpen.three">接口列表</div>
+            <div class="panel-body" ng-show="panelOpen.three">
                 <table class="table table-bordered">
                     <tr>
                         <th>#</th>
@@ -149,18 +134,16 @@
                             <button class="btn btn-danger">删除</button>
                         </td>
                     </tr>
-
                 </table>
                 <div>
                     <button class="btn btn-warning">+ 新增</button>
                 </div>
             </div>
         </div>
-
         <!--数据结构-->
         <div class="panel panel-default">
-            <div class="panel-heading">数据结构列表</div>
-            <div class="panel-body">
+            <div class="panel-heading"  ng-click="panelOpen.four=!panelOpen.four">数据结构列表</div>
+            <div class="panel-body" ng-show="panelOpen.four">
                 <table class="table table-bordered">
                     <tr>
                         <th>#</th>
@@ -191,7 +174,7 @@
                             <button class="btn btn-danger">删除</button>
                         </td>
                     </tr>
-                   <tr>
+                    <tr>
                         <td>3</td>
                         <td>sessionModel</td>
                         <td>当前会话模型</td>
@@ -202,14 +185,12 @@
                             <button class="btn btn-danger">删除</button>
                         </td>
                     </tr>
-
                 </table>
                 <div>
                     <button class="btn btn-warning">+ 新增</button>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <!--angular-->
@@ -220,5 +201,4 @@
 <script src="controllers/mainCtrl.js"></script>
 <script src="controllers/apiInfoCtrl.js"></script>
 </body>
-
 </html>

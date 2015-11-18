@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "author": "gaoletian",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "leveldown": "^1.4.2",
+    "linvodb3": "^3.11.2",
+    "lodash": "^3.10.1",
+    "medeadown": "^1.1.8"
   }
 }

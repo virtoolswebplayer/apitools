@@ -1,0 +1,21 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "该demo主要用于汇集常见的接口编辑事例。\n<br/>\n接口测试过程中如果出现ajax跨域请求问题可参考\"常见问题->线下部署\"中的跨域请求相关资料。\n<br/>\n<br/>\n技术交流群:305629848",
+    "version": "1.0.0",
+    "title": "sosoapi_demo"
+  },
+  "host": "www.sosoapi.com",
+  "basePath": "/demo",
+  "tags": [
+    {
+      "name": "1.入门"
+    },
+    {
+      "name": "2.进阶"
+    }
+  ],
+  "schemes": [],
+  "consumes": [],
+  "produces": []
+}
